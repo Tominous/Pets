@@ -48,8 +48,8 @@ class main extends PluginBase implements Listener {
                 Entity::registerEntity(SheepPet::class);
                 Entity::registerEntity(WitchPet::class);
 		Entity::registerEntity(BlockPet::class);
-		//$server->getScheduler()->scheduleRepeatingTask(new task\PetsTick($this), 20*60);//run each minute for random pet messages
-		//$server->getScheduler()->scheduleRepeatingTask(new task\SpawnPetsTick($this), 20);
+		$server->getScheduler()->scheduleRepeatingTask(new task\PetsTick($this), 20*60);//run each minute for random pet messages
+		$server->getScheduler()->scheduleRepeatingTask(new task\SpawnPetsTick($this), 20);
 		
 	}
 
@@ -204,22 +204,22 @@ class main extends PluginBase implements Listener {
 		return self::$pet[$player];
 	}
 	
-// 	public function getPetState($player){
-// 		if(isset(self::$petState[$player]['state'])) {
-// 			if(self::$petState[$player]['delay'] > 0){
-// 				self::$petState[$player]['delay']--;
-// 				return false;
-// 			}
-// 			return self::$petState[$player];
-// 		}
-// 		return false;
-// 	}
+ 	public function getPetState($player){
+ 		if(isset(self::$petState[$player]['state'])) {
+ 			if(self::$petState[$player]['delay'] > 0){
+ 				self::$petState[$player]['delay']--;
+ 				return false;
+ 			}
+ 			return self::$petState[$player];
+ 		}
+ 		return false;
+ 	}
 	
-// 	public static function setPetState($state,$player, $petType = "", $delay = 2) {
-// 		self::$petState[$player] = array(
-// 				'state' => $state,
-// 				'petType' => $petType,
-// 				'delay' => $delay
-// 		);
-// 	}
+ 	public static function setPetState($state,$player, $petType = "", $delay = 2) {
+ 		self::$petState[$player] = array(
+ 				'state' => $state,
+ 				'petType' => $petType,
+ 				'delay' => $delay
+ 		);
+ 	}
 }
