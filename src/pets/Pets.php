@@ -185,10 +185,10 @@ abstract class Pets extends Creature {
 			return;
 		}
 		if(is_null($this->closeTarget)) {
-// 			$len = rand(12, 15);
-// 			$x = (-sin(deg2rad( $this->owner->yaw + 20))) * $len  +  $this->owner->getX();
-// 			$z = cos(deg2rad( $this->owner->yaw + 20)) * $len  +  $this->owner->getZ();
-// 			$this->closeTarget = new Vector3($x, $this->owner->getY() + 1, $z);
+ 			$len = rand(12, 15);
+ 			$x = (-sin(deg2rad( $this->owner->yaw + 20))) * $len  +  $this->owner->getX();
+ 			$z = cos(deg2rad( $this->owner->yaw + 20)) * $len  +  $this->owner->getZ();
+ 			$this->closeTarget = new Vector3($x, $this->owner->getY() + 1, $z);
 			$this->kill();
 			$this->despawnFromAll();
 			$this->setHealth(0);
